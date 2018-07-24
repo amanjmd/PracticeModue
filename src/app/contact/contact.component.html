@@ -1,0 +1,37 @@
+<h1 class="page-header">New Contact Form</h1>
+
+<form #f="ngForm" (submit)="log(f)">
+  <div class="form-group">
+      <label for="userName">First Name</label>
+      <input ngModel 
+      required 
+      name="userName" 
+      minlength="4" 
+      maxlength="8"
+      pattern="amanaa"
+      id ="userName"
+      #userNameModel="ngModel" 
+      (change)="log(userNameModel)" 
+      type="text" 
+      class="form-control">
+      <div class="alert alert-danger" *ngIf=" userNameModel.touched && !userNameModel.valid">
+        <div *ngIf='userNameModel.errors.required'>User Name is required field</div>
+        <div *ngIf='userNameModel.errors.minlength'>Min Length Not matched of {{userNameModel.errors.minlength.requiredLength}}</div>
+        <div *ngIf='userNameModel.errors.pattern'>User Name does not match the pattern</div>
+      </div>  
+  </div>
+  
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea id="comment" name="commentArea" ngModel class="form-control"></textarea>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input ngModel name="myCheckbox1" #myCheckBox="ngModel"  type="checkbox" [(ngModel)]="isSubscribed">  <br/> My First Checkbox
+    </label>
+  </div>
+  <p>
+    {{f.value|json}}
+  </p>
+  <button class="btn btn-primary">Submit</button>
+</form>
