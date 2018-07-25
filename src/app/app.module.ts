@@ -6,12 +6,14 @@ import { FavouriteComponent } from './favourite/favourite.component';
 import { ContactComponent } from './contact/contact.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MyReactiveFormComponent } from './my-reactive-form/my-reactive-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FavouriteComponent,
-    ContactComponent
+    ContactComponent,
+    MyReactiveFormComponent
   ],
   imports: [
     FormsModule,
